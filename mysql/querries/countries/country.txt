@@ -1,0 +1,18 @@
+SELECT * FROM world.country;
+
+SELECT countries.name, languages.language, languages.percentage 
+FROM countries JOIN languages ON countries.id = languages.country_id WHERE languages.percentage > 89
+ORDER BY languages.percentage DESC;
+
+SELECT name, surface_area, population from countries
+WHERE surface_area < 501 AND population >100000;
+
+SELECT name, government_form, capital, life_expectancy FROM countries
+WHERE government_form = "Constitutional Monarchy" AND capital > 200 AND life_expectancy > 75;
+
+SELECT countries.name as country, cities.name as city, cities.district, cities.population from countries
+JOIN cities ON countries.id = cities.country_id WHERE cities.district = "Buenos Aires"
+AND cities.population > 500000 ORDER BY cities.population DESC;
+
+SELECT countries.region as Regions, COUNT(countries.name) as Countries
+FROM countries GROUP BY countries.region ORDER BY countries DESC;

@@ -1,0 +1,5 @@
+SELECT * FROM world.countrylanguage;
+
+SELECT countries.name as name, languages.language as language, languages.percentage as percentage 
+FROM countries JOIN languages ON countries.id = languages.country_id
+WHERE languages.language = "Slovene" ORDER BY languages.percentage DESC;

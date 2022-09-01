@@ -1,0 +1,20 @@
+SELECT * FROM dojos_and_ninjas.ninjas;
+INSERT INTO ninjas (firstName, lastName, age, dojo_id)
+VALUES ('Chris', 'Orozco', 25, 4);
+INSERT INTO ninjas (firstName, lastName, age, dojo_id)
+VALUES 
+	('John', 'Smith', 30, 4),
+    ('Harper', 'Hahn', 24, 4);
+INSERT INTO ninjas (firstName, lastName, age, dojo_id)
+VALUES 
+	('Carmy', 'Berzatto', 32, 5),
+    ('Richie', 'Jermovic', 43, 5),
+    ('Sydney', 'Adamu', 28, 5);
+INSERT INTO ninjas (firstName, lastName, age, dojo_id)
+VALUES 
+	('Erling', 'Haaland', 22, 6),
+    ('Angel', 'Di Maria', 34, 6),
+    ('Vinicius', 'Junior', 22, 6);
+SELECT * FROM ninjas WHERE dojo_id = 4;
+SELECT * FROM ninjas WHERE dojo_id = 6;
+SELECT * FROM ninjas LEFT JOIN dojos ON ninjas.dojo_id = dojos.id WHERE ninjas.id = 9;

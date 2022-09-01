@@ -1,0 +1,12 @@
+SELECT * FROM friendships.users;
+INSERT INTO users (firstName, lastName)
+VALUES
+	('Amy', 'Giver'),
+    ('Eli', 'Byers'),
+    ('Big', 'Bird'),
+    ('Marky', 'Mark'),
+    ('Kermit', 'The Frog'),
+    ('Jane', 'Doe');
+SELECT * FROM users 
+JOIN friendships ON users.id = friendships.user_id 
+LEFT JOIN users as user2 ON friendships.friend_id = users.id;

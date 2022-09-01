@@ -1,0 +1,9 @@
+SELECT * FROM books.users;
+INSERT INTO users (firstName, lastName)
+VALUES
+	('Jane', 'Amsden'),
+	('Emily', 'Dixon'),
+    ('Theodore', 'Dostoevsky'),
+    ('William', 'Shapiro'),
+    ('Lao', 'Xiu');
+UPDATE users SET firstName = 'Bill' WHERE id = 4;

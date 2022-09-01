@@ -1,0 +1,9 @@
+SELECT * FROM books.books;
+INSERT INTO books (title, numOfPages)
+VALUES
+	('C Sharp', 125),
+    ('Java', 200),
+    ('Python', 2),
+    ('PHP', 434),
+    ('Ruby', 777);
+UPDATE books SET title = 'C#' WHERE id = 1;

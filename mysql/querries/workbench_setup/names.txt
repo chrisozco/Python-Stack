@@ -1,0 +1,9 @@
+SELECT * FROM workbench_setup.names;
+INSERT INTO names (name) VALUES ('Chris Orozco');
+INSERT INTO names (name) VALUES ('Haerper Hahn');
+INSERT INTO names (name) VALUES ('Jane Doe');
+INSERT INTO names (name) VALUES ('Carmy Berzatto');
+INSERT INTO names (name) VALUES ('Matty Matheson');
+UPDATE names SET name = "Niel Falk" WHERE id = 5;
+DELETE FROM names WHERE id = 2;
+SELECT * FROM names WHERE name LIKE "%o";

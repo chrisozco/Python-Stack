@@ -1,0 +1,12 @@
+SELECT * FROM dojos_and_ninjas.dojos;
+INSERT INTO dojos (names)
+VALUE
+	('Python'),
+    ('CSS'),
+    ('Java');
+DELETE FROM dojos WHERE id;
+ INSERT INTO dojos (names)
+VALUE
+	('Science'),
+    ('Math'),
+    ('Art');

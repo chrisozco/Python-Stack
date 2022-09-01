@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <header class="d-flex justify-content-between">
+        <h1>Edit a Recipe!</h1>
+        <div>
+            <a href="/logout" class="btn btn-danger btn-outline-dark">Logout!</a>
+            <a href="/recipes" class="btn btn-secondary btn-outline-dark">All Recipes!</a>
+        </div>
+    </header>
+    <div class="alert alert-danger" role="alert">
+        {% with messages = get_flashed_messages() %}
+            {%if messages %}
+                {% for m in messages %}
+                    <h5>{{m}}</h5>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+    <main>
+        <form action="/recipes/update/{{recipe.id}}" method="post" class="d-flex justify-content-between col-4 bg-dark p-4 my-5 mx-auto text-light">
+            <div>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" value="{{recipe.name}}">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea name="description" cols="30" rows="10">{{recipe.description}}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="instruction">Instructions:</label>
+                    <textarea name="instruction" cols="30" rows="10">{{recipe.instruction}}</textarea>
+                </div>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="dateMade">Date:</label>
+                    <input type="date" name="dateMade" value="{{recipe.dateMade}}">
+                </div>
+                <div class="form-group">
+                    <p>Under 30 min?</p>
+                    <label for="yes" class="form-label">Yes</label>
+                    <input type="radio" name="under_30" value="1" id="yes">
+                    <label for="no" class="form-label">No</label>
+                    <input type="radio" name="under_30" value="0" id="no">
+                </div>
+                <div>
+                    <input type="hidden" name="user_id" value="{{session['user_id']}}">
+                    <button>Submit</button>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,9 @@
+SELECT * FROM world.city;
+
+SELECT countries.name as Countries, COUNT(cities.name) as Cities
+FROM countries LEFT JOIN cities ON countries.id = cities.country_id
+GROUP BY countries.name ORDER BY cities DESC;
+
+SELECT  name , population, country_id FROM cities WHERE cities.population > 500000
+AND cities.country_id = ( SELECT id FROM countries WHERE countries.name = "Mexico" )
+ORDER BY population DESC;

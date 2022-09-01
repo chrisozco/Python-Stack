@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <header class="d-flex justify-content-between">
+        <h1>Welcome {{user.firstName}}!</h1>
+        <div>
+            <a href="/logout" class="btn btn-danger btn-outline-dark">Logout!</a>
+            <a href="/recipes" class="btn btn-secondary btn-outline-dark">All Recipies!</a>
+        </div>
+    </header>
+    <main>
+        <h1>{{recipe.name}}</h1>
+        <div class="card text-white bg-dark mb-3">
+            <div class="flex-container">
+                <p >Description: {{recipe.description}}</p>
+            </div>
+            <div class="flex-container">
+                <p >Under 30 min: 
+                    {% if recipe.under_30 == True: %}
+                        Yes
+                    {% else: %}
+                        No
+                    {% endif %}
+                </p>
+            </div>
+            <div class="flex-container">
+                <p >Instructions: {{recipe.instruction}}</p>
+            </div>
+            <div class="flex-container">
+                <p >Date Made: {{recipe.dateMade}}</p>
+            </div>
+            <div class="flex-container">
+                <p>
+                    {% for u in users %}
+                            {% if recipe.user_id == u.id %}
+                                Created By: {{u.fullName()}}
+                            {% endif %}
+                        {% endfor %}
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
